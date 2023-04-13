@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import Link from 'next/link';
+import Head from 'next/head';
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -36,6 +38,12 @@ export default function Home() {
         <h1>Read <Link href="./posts/first-post"> this page!</Link></h1>
 
       </div>
+
+      <Head>
+        <title>Create Next App</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
 
       <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
         <a
