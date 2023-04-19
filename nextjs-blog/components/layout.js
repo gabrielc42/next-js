@@ -3,6 +3,8 @@ import Image from 'next/image';
 import styles from './layout.module.css';
 import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
+// import styles from './alert.module.css';
+// import { clsx } from 'clsx';
 
 const name = 'Your Name';
 export const siteTitle = 'Next.js Sample Website';
@@ -67,3 +69,16 @@ export default function Layout({ children, home }) {
     </div>
   );
 }
+
+// export default function Alert({ children, type }) {
+//   return (
+//     <div
+//       className={clsx({
+//         [styles.success]: type === 'success',
+//         [styles.error]: type === 'error',
+//       })}
+//     >
+//       {children}
+//     </div>
+//   );
+// }
