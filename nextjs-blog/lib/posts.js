@@ -37,19 +37,19 @@ export function getSortedPostsData() {
 }
 
 export async function getAllPostIds() {
-  const res = await fetch('..');
-  const posts = await res.json();
-  return posts.map((post) => {
-    return {
-      params: {
-        id: post.id,
-      },
-    };
-  });
+  // const res = await fetch('http://localhost:3000/api/posts/id=1');
+  // const posts = await res.json();
+  // return posts.map((post) => {
+  //   return {
+  //     params: {
+  //       id: post.id,
+  //     },
+  //   };
+  // });
   
   
   // file system
-  // const fileNames = fs.readdirSync(postsDirectory);
+  const fileNames = fs.readdirSync(postsDirectory);
 
   // Returns an array that looks like this:
   // [
@@ -64,16 +64,20 @@ export async function getAllPostIds() {
   //     }
   //   }
   // ]
-  // return fileNames.map(fileName => {
-  //   return {
-  //     params: {
-  //       id: fileName.replace(/\.md$/, ''),
-  //     }
-  //   }
-  // })
+  return fileNames.map(fileName => {
+    return {
+      params: {
+        id: fileName.replace(/\.md$/, ''),
+      }
+    }
+  })
 }
 
 export async function getPostData(id) {
+  // return {
+  //   id,
+  // }
+  
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
 
